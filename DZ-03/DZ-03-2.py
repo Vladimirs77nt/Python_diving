@@ -33,7 +33,7 @@ for i in text.split():
 text_list = []
 for key, count in dict.items():
     text_list.append([count, key])
-text_list.sort(reverse=True) # сортировка списка
+text_list.sort(reverse=True) # сортировка списка по кол-ву повторов
 
 print (" ---------------------------- ")
 for i in range(10): # печатаем первые 10 самых частых
