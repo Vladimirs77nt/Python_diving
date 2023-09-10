@@ -110,3 +110,6 @@ print ()
 for count, i in enumerate(common_list, 1):
     regex = ', '.join(i)
     print (f"Вариант №{count:<3}-> {regex:.<{len_max+3}} суммарный вес: {round(item_list_weight(i),2)}")
+
+print ()
+print (" -- меняя значение count_stop в строке 72 - можно увеличить или уменьшить кол-во искомых вариаций комплектации")
