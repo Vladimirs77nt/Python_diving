@@ -22,7 +22,7 @@ def init ():
     print ()
     global cash, operation_count, operation_record, wealth_tax
     cash = 0                # сумма счета
-    operation_count = 0     # счетчик операций
+    operation_count = 1     # счетчик операций
     operation_record = []   # журнал операций
     wealth_tax = False      # налог на богатство
     
@@ -32,7 +32,7 @@ def view_menu ():
     print ("1. Пополнить счет")
     print ("2. Снять со счета")
     print ("3. Выйти")
-    print ("4. Показать историю (log) операци")
+    print ("4. Показать историю (log) операций")
     print ()
     view_cash ()
 
@@ -63,7 +63,7 @@ def controller ():
                     operation_record.append (f"{operation_count}. Пополнение счета на {cash_in}. Баланс {cash}")
                     print ()
                     operation_count += 1
-                    if operation_count%3 == 0:
+                    if (operation_count-1)%3 == 0:
                         view_cash ()
                         accrual_of_money_interest (3)
                 if cash_in == 0:
@@ -104,13 +104,13 @@ def controller ():
                             operation_record.append (" >> Операция прервана! Со счета ничего не снято...")
                         else:
                             print (f" >> Введена сумма {cash_out}")
-                            print (f" >> Процент за снятие: {percentage_for_withdrawal_of_money}.  Итого сумма снятия: {cash_out + percentage_for_withdrawal_of_money}")
+                            print (f" >> Процент за снятие: {percentage_for_withdrawal_of_money}.  Итого сумма списания: {cash_out + percentage_for_withdrawal_of_money}")
                             cash -= (cash_out + percentage_for_withdrawal_of_money)
-                            print (f" >> Со счета снято {cash_out + percentage_for_withdrawal_of_money}")
-                        operation_record.append (f"{operation_count}. Снятие со счета суммы {cash_out + percentage_for_withdrawal_of_money}. Баланс {cash}")
+                            print (f" >> Со счета снято {cash_out} ({cash_out + percentage_for_withdrawal_of_money})")
+                        operation_record.append (f"{operation_count}. Списание со счета суммы {cash_out} ({cash_out + percentage_for_withdrawal_of_money}). Баланс {cash}")
                         print ()
                         operation_count += 1
-                        if operation_count%3 == 0:
+                        if (operation_count-1)%3 == 0:
                             view_cash ()
                             accrual_of_money_interest (3)
                 view_menu ()
@@ -128,21 +128,25 @@ def controller ():
             # ПОКАЗАТЬ ЖУРНАЛ ОПЕРАЦИЙ СО СЧЕТОМ
             case "4":
                 print ()
+                operation_wealth_tax (10, 5000000)
+                print ()
                 view_cash ()
                 print (">> выбрано '4. Показать историю (log) операций'")
                 print ()
-                for i in operation_record:
-                    print(f" >> record:  {i}")
-                print (" >> record:      ----- конец записи -----")
+                if operation_count > 0:
+                    for i in operation_record:
+                        print(f" >> record:  {i}")
+                    print (" >> record:      ----- конец записи -----")
+                else:
+                    print (" >> record:      ----- запись пустая -----")
                 print ()
-                operation_wealth_tax (10, 5000000)
                 view_menu ()
 
             case _:
                 print ()
                 print (">> команда не распознана! пожалуйста повторите выбор...")
+                operation_wealth_tax (10, 5000000)
                 print ()
-                view_cash ()
                 view_menu ()
 
 # ИНТЕРФЕЙС ВЫБОРА (ВВОДА) СУММЫ
@@ -155,8 +159,8 @@ def amount_selecrion ():
 
     while True:
         print ()
+        operation_wealth_tax (10, 5_000_000)
         amount_selection = input ("Введите сумму (0 - выход): ")
-        print ()
         if amount_selection == "0":
             return 0
         if amount_selection.isdigit():
@@ -173,7 +177,7 @@ def amount_selecrion ():
 def accrual_of_money_interest (proc):
     global cash
     summ_proc = round (cash*proc/100, 2)
-    print (f" >> НАЧИСЛЕНЫ ПРОЦЕНТЫ ( +{proc}% ) !!! => {summ_proc}")
+    print (f" >> НАЧИСЛЕНЫ ПРОЦЕНТЫ ( +{proc}% ) !!! => +{summ_proc}")
     cash += round(summ_proc, 2)
     operation_record.append (f" -- Начислены проценты: +{proc}% (+{summ_proc}). Баланс {cash}")
     print ()
@@ -187,13 +191,13 @@ def operation_wealth_tax (tax, wealth_limit):
     wealth_tax = True
     summ_tax = round (cash*tax/100, 2)
     print ()
-    print (f" >> НАЧИСЛЕН НАЛОГ НА БОГАТСТВО ( -{tax}% ) !!! => -{summ_tax}")
+    print (f" >> СПИСАН НАЛОГ НА БОГАТСТВО ( -{tax}% ) !!! => -{summ_tax}")
     cash -= summ_tax
-    operation_record.append (f" -- Начислен налог на богатство: -{tax}% (-{summ_tax}). Баланс {cash}")
-    print ()
-    view_cash ()
+    operation_record.append (f" -- Списан налог на богатство: -{tax}% (-{summ_tax}). Баланс {cash}")
     return True
 
 ###########################################################
+# --- ЗАПУСК
+
 init ()
 controller ()
