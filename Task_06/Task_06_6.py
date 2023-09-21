@@ -7,3 +7,8 @@
 # Отдельно напишите функцию, которая выводит результаты угадывания из защищённого словаря в удобном для чтения виде.
 # Для формирования результатов используйте генераторное выражение.
 
+from modules.riddle_3 import game_start as riddle_game
+from modules.riddle_3 import show_results as show_results
+
+riddle_game (2, 2)
+print(show_results ())

@@ -4,7 +4,7 @@
 # Функция получает на вход загадку, список с возможными вариантами отгадок и количество попыток на угадывание.
 # Программа возвращает номер попытки, с которой была отгадана загадка или ноль, если попытки исчерпаны.
 
-from riddle_game.riddle import func_ridde as riddle_game
+from modules.riddle import func_ridde as riddle_game
 import random
 
 # список загадок с ответами

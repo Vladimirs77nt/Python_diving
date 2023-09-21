@@ -5,7 +5,7 @@
 # Строка должна принимать от 1 до 3 аргументов: параметры вызова функции.
 # Для преобразования строковых аргументов командной строки в числовые параметры используйте генераторное выражение.
 
-from guess_game.guess import func_ugadai as guess_game
+from modules.guess import func_ugadai as guess_game
 import sys
 
 args = list (map (int, sys.argv[1:]))
