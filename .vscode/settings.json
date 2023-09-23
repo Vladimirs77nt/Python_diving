@@ -6,4 +6,4 @@
     "python.analysis.extraPaths": [
         "./Test_import_packeg"
     ]
-}
+} 
