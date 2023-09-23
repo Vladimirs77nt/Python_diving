@@ -4,4 +4,4 @@
 # print ("Адрес объекта:", id(rez))
 # print ("Хэш объекта:", hash(rez))
 
-help()
+help() 
