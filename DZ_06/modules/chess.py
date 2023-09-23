@@ -14,7 +14,7 @@ import random
 def print_сhess_table(list_pairs):
     
     # формируем шахматную доску по списку фрезей с координатами
-    _chess_board = placement_chess_table_list (list_pairs)
+    _chess_board = _placement_chess_table_list (list_pairs)
 
     # тип клетки - белая или черная
     square_type = 1 
@@ -35,7 +35,7 @@ def print_сhess_table(list_pairs):
         print(str_line)
 
 # формирование доски по переданному списку ферзей
-def placement_chess_table_list (list_pairs):
+def _placement_chess_table_list (list_pairs):
     # заполнение доски 8х8 нулями - пустые поля
     _chess_board = [[0 for _ in range (8)] for _ in range (8)]
     for queen in list_pairs:
