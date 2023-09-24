@@ -8,8 +8,9 @@
 # При достижении конца более короткого файла, возвращайтесь в его начало.
 
 import os
-os.chdir("Task_07")
+os.chdir("Task_07")     # <-- рабочая папка с файлами
 
+# функция чтения списка из указанного текстового файла
 def load_file (file):
     list_file = []
     with open(file, "r", encoding="utf-8") as f:
@@ -18,12 +19,14 @@ def load_file (file):
     print (f" -- файл {file} прочитан --")  
     return list_file
 
+# функция записи списка в указанный тексовый файл
 def save_to_file (file, list_):
     with open(file, "w", encoding="utf-8") as f:
         for line in list_:
             f.write (line+"\n")
     print (f" -- файл {file} записан --")  
 
+# функция создания списка результата обработки двух входящих файлов
 def func_multi_name (file_number, file_name):
     list_num = load_file (file_number)
     list_name = load_file (file_name)
@@ -47,10 +50,13 @@ def func_multi_name (file_number, file_name):
         count_name += 1
         count_num += 1
     print (" -- данные обработаны --")
+    print (" << программа завершенна >>")
     return list_result
-    
+
+
+# ---------- ЗАПУСК ПРОГРАММЫ -------------
 file_number = "Task_07_1_number.txt"
-file_name = "Task_07_2_name.txt"
+file_name =   "Task_07_2_name.txt"
 file_result = "Task_07_3_muli_name.txt"
 
 a = func_multi_name (file_number, file_name)

@@ -8,8 +8,6 @@
 # ✔ Внутри используйте вызов функции из прошлой задачи.
 
 import os
-os.chdir("Task_07/file_2")
-
 import random
 import string
 
@@ -21,6 +19,22 @@ COUNT_FILE = 42
 
 letter = string.ascii_lowercase
 
+
+# инициализация рабочей папки
+def init (_dir):
+    default_path = os.getcwd()
+    dir_path = default_path + _dir
+    dir_path = dir_path.replace("\\","/")
+    try:
+        os.chdir(dir_path)
+    except:
+        os.mkdir(dir_path)
+        os.chdir(dir_path)
+
+
+# функция генерирует случайное имя:
+# SIZE_NAME_MIN - минимальное кол-во букв в имени
+# SIZE_NAME_MAX - максимальнео кол-во букв в имени
 def generate_name ():
     size = random.randint (SIZE_NAME_MIN, SIZE_NAME_MAX)
     name = ""
@@ -29,18 +43,28 @@ def generate_name ():
     name = "".join (name)
     return name
 
-def generaor_file (file_exp, count=COUNT_FILE):
-    for i in range(count):
-        file_name = (f"{i}_{generate_name()}.{file_exp}")
-        print (file_name)
-        with open(file_name, "w", encoding="utf-8") as f:
-            # f.write (str(random.randint(0, 1_000_000)))
-            print (f" -- файл {file_name} записан --")
 
-def generaor_file_many (**kwargs):
+# функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
+def generate_file (file_exp, count=COUNT_FILE):
+    for _ in range(count):
+        file_name = (f"{generate_name()}.{file_exp}")
+        with open(file_name, "wb") as f:
+            size_file = random.randint (SIZE_BYTE_MIN, SIZE_BYTE_MAX)
+            random_bytes = random.randbytes(size_file)
+            f.write (random_bytes)
+            print (f" -- файл {file_name:.<42}({size_file} байт) \t записан --")
+
+
+# функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
+def generate_many_file (**kwargs):
     for file_exp, count in kwargs.items():
-        generaor_file (file_exp, count)
+        generate_file (file_exp, count)
+    print (" << программа завершенна >>")
 
 
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
-generaor_file_many (txt=5, doc=6, cdr=2, apx=1)
+dir_path = "/Task_07/file_2"    # <-- рабочая папка с файлами
+init (dir_path)
+
+# запуск генерации файлов
+generate_many_file (txt=2, doc=8, cdr=5, apx=3, jpg=3, png=3, tmp=3)

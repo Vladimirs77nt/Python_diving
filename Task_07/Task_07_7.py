@@ -8,41 +8,35 @@
 
 import os
 
-# папка с файлами / относительно рабочей папки
-dir_path = "/Task_07/file_4"
-
 # словаь расширений по группам, ключ - жто название группы и папки назначения
 exc_sort = {"_video": ["mp4", "avi", "mov", "mkv"],
             "_image": ["jpg", "tiff", "gif", "png"],
             "_text": ["txt", "doc"],
+            "_vector": ["cdr", "wmf", "cmx", "svg", "ai"]
             }
 
-# папка для "прочих" файлов, с расширениями отличными от тех что есть в словаре
-dir_path_other = "_other"
-
 # инициализация папок для сортировки
-def init ():
-    global dir_path
+def init_sort_folder (_dir):
     default_path = os.getcwd()
-    dir_path = default_path + dir_path
+    dir_path = default_path + _dir
     dir_path = dir_path.replace("\\","/")
     try:
         os.chdir(dir_path)
     except:
         os.mkdir(dir_path)
-    os.chdir(dir_path)
+        os.chdir(dir_path)
     list_dir_path = list (exc_sort.keys())
-    list_dir_path.append (dir_path_other)
-    print (list_dir_path)
     for i in list_dir_path:
         try:
             os.mkdir(i)
+            print (f" -- папка {i} для файлов типа {str(exc_sort[i])} создана!")
         except:
             continue
 
-# основаная функция сорировки файлов
+# основаная функция сортировки файлов
 def sort_file_in_dir (_dir):
-    os.chdir(_dir)
+    init_sort_folder (_dir)
+    count = 0
     for i in os.listdir():      # в циклое проходим по всем фалйам и папкам
         if os.path.isdir(i):    # если это папка - то пропускаем!
                 continue
@@ -52,10 +46,13 @@ def sort_file_in_dir (_dir):
         for type, exc_list in exc_sort.items ():
             if file_extension in exc_list:
                 os.replace(i, (f"{type}/{i}"))          # перемещаем в целевую папку
+                count += 1
                 break
-        else:
-            os.replace(i, (f"{dir_path_other}/{i}"))    # перемещаем в папку "прочее/other"
-    print (f" -- сортировка завершена успешно! --")  
+    if count > 0:
+        print (f" -- сортировка завершена успешно! Отсортировано {count} файлов --\n")
+    else:
+        print (" -- файлов для сортировки не найдено --\n")
+    return count
 
 # функция возвращает название файла (до последней точки) и расширение файла
 def func_file (file_str):
@@ -64,5 +61,7 @@ def func_file (file_str):
     return file_name, file_extension
 
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
-init ()
+dir_path = "/Task_07/file_4"    # <-- рабочая папка с файлами
+
+# запуск функции сортировки файлов в указанной папке
 sort_file_in_dir (dir_path)
