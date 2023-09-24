@@ -62,5 +62,5 @@ def generate_many_file (_dir, **kwargs):
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
 dir_path = "/DZ_07/files"    # <-- рабочая папка с файлами
 
-# запуск генерации файлов
+# запуск генерации файлов 
 generate_many_file (dir_path, mov=2, mp4=3, avi=5, txt=5, doc=6, cdr=2, jpg=3, tiff=4, gif=2, svg=3, ai=10, twg=10, ght=5, vbn=8)

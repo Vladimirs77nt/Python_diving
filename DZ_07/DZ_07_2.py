@@ -31,8 +31,8 @@ def file_get_name_extesion (file_str):
     *file_name, file_extension = file_str.split(".")
     file_name = ".".join(j for j in file_name)
     return file_name, file_extension
-
-
+  
+ 
 # --- функция группового переименования файлов ---
 # (1) _exc_file_in      - расширение файлов до переименования (искомое)
 # (2) _exc_file_out     - расширение файлов после переимнования
