@@ -1,13 +1,13 @@
 # МОДУЛЬ ДЛЯ РАБОТЫ С ФАЙЛАМИ
 
+# init_ (_dir):                      - инициализация рабочей папки
 # init_sort_folder (_dir):           - инициализация папок для сортировки
-# init_sort_folder (_dir):           - инициализация папок для сортировки
+# generate_name ():                  - функция генерирует случайное имя
 # file_get_name_extesion (file_str): - функция возвращает название файла (до последней точки) и расширение файла (кортеж)
 # rename_group (_exc_file_in, _exc_file_out, _origin_name_range [], _digit: int, _file_name_out=""): 
 #                                    - функция группового переименования файлов
-# generate_name ():                  - функция генерирует случайное имя
-# generator_file (file_exp, count=COUNT_FILE): - функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
-# generator_file_many (_dir, **kwargs):         - функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
+# generate_file (file_exp, count=COUNT_FILE):  - функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
+# generate_many_file (_dir, **kwargs):         - функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
 # sort_file_in_dir (_dir):           - функция сортировки файлов
 
 
@@ -61,6 +61,17 @@ def init_sort_folder (_dir):
         except:
             continue
 
+# функция генерирует случайное имя:
+# SIZE_NAME_MIN - минимальное кол-во букв в имени
+# SIZE_NAME_MAX - максимальнео кол-во букв в имени
+def generate_name ():
+    size = random.randint (SIZE_NAME_MIN, SIZE_NAME_MAX)
+    name = ""
+    for i in range (size):
+        name += random.choices(list(LETTERS))[0]
+    name = "".join (name)
+    return name
+
 # --- функция возвращает название файла (до последней точки) и расширение файла (кортеж) ---
 # file_str          - строковое название файла с расширением
 def file_get_name_extesion (file_str):
@@ -97,19 +108,8 @@ def rename_group (_exc_file_in: str, _exc_file_out: str, _origin_name_range: [in
          print (f" >> Обработка файлов завершена. Переименовано {count} файлов\n")
     return count
 
-# функция генерирует случайное имя:
-# SIZE_NAME_MIN - минимальное кол-во букв в имени
-# SIZE_NAME_MAX - максимальнео кол-во букв в имени
-def generate_name ():
-    size = random.randint (SIZE_NAME_MIN, SIZE_NAME_MAX)
-    name = ""
-    for i in range (size):
-        name += random.choices(list(LETTERS))[0]
-    name = "".join (name)
-    return name
-
 # функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
-def generator_file (file_exp, count=COUNT_FILE):
+def generate_file (file_exp, count=COUNT_FILE):
     for i in range(count):
         file_name = (f"{i}_{generate_name()}.{file_exp}")
         with open(file_name, "w", encoding="utf-8") as f:
@@ -118,7 +118,7 @@ def generator_file (file_exp, count=COUNT_FILE):
 
 # функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
 # первым аргументом указывается рабочая папка !!!
-def genertor_file_many (_dir, **kwargs):
+def generate_many_file (_dir, **kwargs):
     try:
         os.chdir(_dir)
     except:
@@ -126,7 +126,7 @@ def genertor_file_many (_dir, **kwargs):
 
     os.chdir(_dir)
     for file_exp, count in kwargs.items():
-        generator_file (file_exp, count)
+        generate_file (file_exp, count)
 
 # функция сортировки файлов
 def sort_file_in_dir (_dir):
