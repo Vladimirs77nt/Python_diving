@@ -32,6 +32,24 @@ def init (_dir):
         os.mkdir(dir_path_full)
         os.chdir(dir_path_full)
 
+# инициализация папок для сортировки
+def init_sort_folder (_dir):
+    default_path = os.getcwd()
+    dir_path = default_path + _dir
+    dir_path = dir_path.replace("\\","/")
+    try:
+        os.chdir(dir_path)
+    except:
+        os.mkdir(dir_path)
+        os.chdir(dir_path)
+    list_dir_path = list (exc_sort.keys())
+    for i in list_dir_path:
+        try:
+            os.mkdir(i)
+            print (f" -- папка {i} для файлов типа {str(exc_sort[i])} создана!")
+        except:
+            continue
+
 # --- функция возвращает название файла (до последней точки) и расширение файла (кортеж) ---
 # file_str          - строковое название файла с расширением
 def file_get_name_extesion (file_str):
@@ -79,7 +97,7 @@ def generate_name ():
     name = "".join (name)
     return name
 
-
+# функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
 def generaor_file (file_exp, count=COUNT_FILE):
     for i in range(count):
         file_name = (f"{i}_{generate_name()}.{file_exp}")
@@ -87,7 +105,8 @@ def generaor_file (file_exp, count=COUNT_FILE):
             f.write (str(random.randint(0, 1_000_000)))
             print (f" -- файл {file_name} записан --")
 
-
+# функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
+# первым аргументом указывается рабочая папка !!!
 def generaor_file_many (_dir, **kwargs):
     try:
         os.chdir(_dir)
@@ -101,16 +120,21 @@ def generaor_file_many (_dir, **kwargs):
 
 # функция сортировки файлов
 def sort_file_in_dir (_dir):
+    init_sort_folder (_dir)
+    count = 0
     for i in os.listdir():      # в циклое проходим по всем фалйам и папкам
         if os.path.isdir(i):    # если это папка - то пропускаем!
                 continue
-        file_name, file_extension = file_get_name_extesion (i)
+        file_name, file_extension = func_file (i)
 
         # ищем полученное расширение на соответствие заданному списку
         for type, exc_list in exc_sort.items ():
             if file_extension in exc_list:
                 os.replace(i, (f"{type}/{i}"))          # перемещаем в целевую папку
+                count += 1
                 break
-        else:
-            os.replace(i, (f"{dir_path_other}/{i}"))    # перемещаем в папку "прочее/other"
-    print (f" -- сортировка завершена успешно! --")  
+    if count > 0:
+        print (f" -- сортировка завершена успешно! Отсортировано {count} файлов --\n")
+    else:
+        print (" -- файлов для сортировки не найдено --\n")
+    return count

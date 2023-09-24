@@ -27,9 +27,15 @@ def save_to_file (count, file_name):
             f.write(str)
     print (" -- файл записан --")    
 
+
+# ---------- ЗАПУСК ПРОГРАММЫ -------------
 os.chdir("Task_07")
 save_to_file (5, "Task_07_2_name.txt")
 
+
+
+
+# изначальны пробный вариант....
 # import random
 
 # list_1 = [chr(i) for i in range(1040, 1072)]    # заглавные буквы

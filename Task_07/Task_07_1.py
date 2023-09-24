@@ -17,5 +17,7 @@ def save_file (row, file_name):
             f.write(str)
     print (" -- файл записан --")
 
+
+# ---------- ЗАПУСК ПРОГРАММЫ -------------
 os.chdir("Task_07")
 save_file (5, "Task_07_1_number.txt")

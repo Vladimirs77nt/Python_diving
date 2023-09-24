@@ -33,7 +33,13 @@ def init_sort_folder (_dir):
         except:
             continue
 
-# основаная функция сортировки файлов
+# функция возвращает название файла (до последней точки) и расширение файла
+def func_file (file_str):
+    *file_name, file_extension = file_str.split(".")
+    file_name = ".".join(j for j in file_name)
+    return file_name, file_extension
+
+# функция сортировки файлов
 def sort_file_in_dir (_dir):
     init_sort_folder (_dir)
     count = 0
@@ -54,11 +60,6 @@ def sort_file_in_dir (_dir):
         print (" -- файлов для сортировки не найдено --\n")
     return count
 
-# функция возвращает название файла (до последней точки) и расширение файла
-def func_file (file_str):
-    *file_name, file_extension = file_str.split(".")
-    file_name = ".".join(j for j in file_name)
-    return file_name, file_extension
 
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
 dir_path = "/Task_07/file_4"    # <-- рабочая папка с файлами

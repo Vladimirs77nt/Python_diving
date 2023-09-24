@@ -19,7 +19,6 @@ COUNT_FILE = 42
 
 letter = string.ascii_lowercase
 
-
 # инициализация рабочей папки
 def init (_dir):
     default_path = os.getcwd()
@@ -30,7 +29,6 @@ def init (_dir):
     except:
         os.mkdir(dir_path)
         os.chdir(dir_path)
-
 
 # функция генерирует случайное имя:
 # SIZE_NAME_MIN - минимальное кол-во букв в имени
@@ -43,7 +41,6 @@ def generate_name ():
     name = "".join (name)
     return name
 
-
 # функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
 def generate_file (file_exp, count=COUNT_FILE):
     for _ in range(count):
@@ -53,7 +50,6 @@ def generate_file (file_exp, count=COUNT_FILE):
             random_bytes = random.randbytes(size_file)
             f.write (random_bytes)
             print (f" -- файл {file_name:.<42}({size_file} байт) \t записан --")
-
 
 # функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
 def generate_many_file (**kwargs):
