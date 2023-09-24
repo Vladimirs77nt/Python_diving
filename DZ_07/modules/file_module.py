@@ -1,5 +1,16 @@
 # МОДУЛЬ ДЛЯ РАБОТЫ С ФАЙЛАМИ
 
+# init_sort_folder (_dir):           - инициализация папок для сортировки
+# init_sort_folder (_dir):           - инициализация папок для сортировки
+# file_get_name_extesion (file_str): - функция возвращает название файла (до последней точки) и расширение файла (кортеж)
+# rename_group (_exc_file_in, _exc_file_out, _origin_name_range [], _digit: int, _file_name_out=""): 
+#                                    - функция группового переименования файлов
+# generate_name ():                  - функция генерирует случайное имя
+# generator_file (file_exp, count=COUNT_FILE): - функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
+# generator_file_many (_dir, **kwargs):         - функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
+# sort_file_in_dir (_dir):           - функция сортировки файлов
+
+
 import os
 import random
 import string
@@ -98,7 +109,7 @@ def generate_name ():
     return name
 
 # функция генерирует файлы со случайным именем, с заданным расширением и кол-вом
-def generaor_file (file_exp, count=COUNT_FILE):
+def generator_file (file_exp, count=COUNT_FILE):
     for i in range(count):
         file_name = (f"{i}_{generate_name()}.{file_exp}")
         with open(file_name, "w", encoding="utf-8") as f:
@@ -107,7 +118,7 @@ def generaor_file (file_exp, count=COUNT_FILE):
 
 # функция генерирует файлы по входящим расширениям с указанием кол-ва файлов
 # первым аргументом указывается рабочая папка !!!
-def generaor_file_many (_dir, **kwargs):
+def genertor_file_many (_dir, **kwargs):
     try:
         os.chdir(_dir)
     except:
@@ -115,8 +126,7 @@ def generaor_file_many (_dir, **kwargs):
 
     os.chdir(_dir)
     for file_exp, count in kwargs.items():
-        generaor_file (file_exp, count)
-
+        generator_file (file_exp, count)
 
 # функция сортировки файлов
 def sort_file_in_dir (_dir):
@@ -125,7 +135,7 @@ def sort_file_in_dir (_dir):
     for i in os.listdir():      # в циклое проходим по всем фалйам и папкам
         if os.path.isdir(i):    # если это папка - то пропускаем!
                 continue
-        file_name, file_extension = func_file (i)
+        file_name, file_extension = file_get_name_extesion (i)
 
         # ищем полученное расширение на соответствие заданному списку
         for type, exc_list in exc_sort.items ():
