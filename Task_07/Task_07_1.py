@@ -20,4 +20,4 @@ def save_file (row, file_name):
 
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
 os.chdir("Task_07")
-save_file (5, "Task_07_1_number.txt")
+save_file (15, "Task_07_1_number.txt")

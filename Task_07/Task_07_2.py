@@ -30,7 +30,7 @@ def save_to_file (count, file_name):
 
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
 os.chdir("Task_07")
-save_to_file (5, "Task_07_2_name.txt")
+save_to_file (15, "Task_07_2_name.txt")
 
 
 
