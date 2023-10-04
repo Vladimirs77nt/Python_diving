@@ -53,5 +53,6 @@ def ugadai_chislo (max, count):
         print()
 
 
-# ----- БЛОК ЗАПУСКА
+# ----- БЛОК ЗАПУСКА ---------------------
+
 print ( ugadai_chislo (1000, 1000))

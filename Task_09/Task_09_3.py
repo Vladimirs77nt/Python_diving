@@ -34,7 +34,10 @@ def factorial (x):
     return f
 
 
-# ----------------------------- 
+# ----- БЛОК ЗАПУСКА ---------------------
+
+dir_path = os.getcwd() + "/Task_08"    # <-- рабочая папка для работы
+os.chdir(dir_path)
 
 print (factorial (5))
 print (factorial (10))

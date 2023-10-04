@@ -47,6 +47,9 @@ def igra ():
 
     return func_ugadai
 
+
+# ----- БЛОК ЗАПУСКА ---------------------
+
 primer = igra ()
 
 primer ()
