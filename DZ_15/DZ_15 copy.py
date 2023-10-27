@@ -41,7 +41,10 @@ def info_dir_and_file (dir_path, result_list={}, size=0):
         size += i_size
     dir_info = f"> Папка {os.path.abspath(dir_path)}, размер {size} байт"
     dir_info = dir_info.replace ("\\","/")
-    result_list [dir_info] = temp_list
+    result_list [os.path.abspath(dir_path)] = {"type": "Папка",
+                                               "name": dir_path,
+                                               "path": dir_path,
+                                               "size": sizeмм}
     return result_list, size
 
 
