@@ -1,0 +1,9 @@
+result: 120, *args: (5,), *kwargs: {}
+result: 3628800, *args: (10,), *kwargs: {}
+result: 1307674368000, *args: (15,), *kwargs: {}
+result: 120, *args: (), *kwargs: {'x': 5}
+result: 1307674368000, *args: (15,), *kwargs: {}
+result: 1307674368000, *args: (15,), *kwargs: {}
+result: 1307674368000, *args: (15,), *kwargs: {}
+result: 3628800, *args: (), *kwargs: {'x': 10}
+result: 1, *args: (), *kwargs: {'x': 0}

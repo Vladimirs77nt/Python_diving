@@ -1,0 +1,6 @@
+result: первая_вторая, args: первая, вторая
+result: первая_вторая, args: первая, kwargs: b=вторая
+result: первая_вторая, kwargs: a=первая, b=вторая
+INFO:__main__:result: первая_вторая, args: первая, вторая
+INFO:__main__:result: первая_вторая, args: первая, kwargs: b=вторая
+INFO:__main__:result: первая_вторая, kwargs: a=первая, b=вторая
