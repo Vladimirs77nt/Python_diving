@@ -72,6 +72,12 @@ def func_file_path (file):
 
 
 # --------------- ЗАПУСК ПРОГРАММЫ ------------------
+
+print ()
+print (" --- ВНИМАНИЕ !!! ЗАДАЧА ЕЩЕ В ПРОЦЕССЕ РЕШЕНИЯ !!! ---")
+print ()
+
+
 base_dir_path = os.getcwd()
 dir_path = base_dir_path + "/DZ_06"    # <-- рабочая папка для работы
 os.chdir(dir_path)
@@ -87,3 +93,7 @@ dir_path = base_dir_path + "/DZ_15"    # <-- рабочая папка для з
 file_name = "result_scan"
 os.chdir(dir_path)
 write_json (result, file_name)
+
+print ()
+print (" --- ВНИМАНИЕ !!! ЗАДАЧА ЕЩЕ В ПРОЦЕССЕ РЕШЕНИЯ !!! ---")
+print ()

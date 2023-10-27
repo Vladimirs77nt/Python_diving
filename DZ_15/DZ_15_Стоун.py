@@ -49,6 +49,11 @@ def dir_walker(full_path: str = os.getcwd()):
 
 
 # --------------- ЗАПУСК ПРОГРАММЫ ------------------
+
+print ()
+print (" --- ВНИМАНИЕ !!! ЗАДАЧА ЕЩЕ В ПРОЦЕССЕ РЕШЕНИЯ !!! ---")
+print ()
+
 base_dir_path = os.getcwd()
 dir_path = base_dir_path + "/DZ_06"    # <-- рабочая папка для записи
 os.chdir(dir_path)
@@ -59,3 +64,7 @@ dir_path = base_dir_path + "/DZ_15"    # <-- рабочая папка для з
 file_name = "result_scan_СТОУН"
 os.chdir(dir_path)
 json_writer(file_name, result)
+
+print ()
+print (" --- ВНИМАНИЕ !!! ЗАДАЧА ЕЩЕ В ПРОЦЕССЕ РЕШЕНИЯ !!! ---")
+print ()
