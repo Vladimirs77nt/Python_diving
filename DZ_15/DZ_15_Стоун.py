@@ -19,8 +19,6 @@ import json
 import csv
 import pickle
 
-file_name = "result_scan_СТОУН"
-
 
 def size_of_dir(dir_path: str) -> int:
     total_size = 0
@@ -49,14 +47,17 @@ def dir_walker(full_path: str = os.getcwd()):
             result[os.path.join(path, cur_file)] = {"name": cur_file,
                                                    "path": path,
                                                    "type": "FILE",
-                                                   "size": sys.getsizeof(os.path.join(path, cur_file))}
-    json_writer(full_path, result)
+                                                   "size": os.path.getsize(os.path.join(path, cur_file))}
     return result
     
 
 #--------------------------------------------------------------
-dir_path = os.getcwd() + ""    # <-- рабочая папка для записи
-
+dir_path = os.getcwd() + "/DZ_06"    # <-- рабочая папка для записи
 os.chdir(dir_path)
+result = dir_walker(dir_path)
+pprint (result)
 
-pprint (dir_walker(dir_path))
+dir_path = os.getcwd() + "/DZ_15"    # <-- рабочая папка для записи
+file_name = "result_scan_СТОУН"
+os.chdir(dir_path)
+json_writer(file_name, result)

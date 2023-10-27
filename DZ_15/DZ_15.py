@@ -47,7 +47,7 @@ def info_dir_and_file (dir_path, result_list={}, size=0):
     return result_list, size
 
 
-# функция записи словаря с результатами в три формата: JSON, CSV, PICKLE
+# функция записи словаря с результатами в формат JSON
 def write_json (_result_dict, file_name):
     file_json = file_name + ".json"
     # запись JSON
@@ -56,7 +56,7 @@ def write_json (_result_dict, file_name):
 
 
 # ---------- ЗАПУСК ПРОГРАММЫ -------------
-dir_path = os.getcwd() + "/DZ_15"    # <-- рабочая папка для работы
+dir_path = os.getcwd() + "/DZ_06"    # <-- рабочая папка для работы
 print (dir_path)
 
 result, *_ = info_dir_and_file (dir_path)
@@ -67,6 +67,6 @@ for key, value in result.items():
         print (file)
 
 dir_path = os.getcwd() + "/DZ_15"    # <-- рабочая папка для записи
-file_name = "result_scan_ВОВА"
+file_name = "result_scan"
 os.chdir(dir_path)
 write_json (result, file_name)
