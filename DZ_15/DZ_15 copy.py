@@ -5,16 +5,23 @@
 # Каждый объект хранит:
 #   ○ имя файла без расширения или название каталога
 #   ○ расширение, если это файл,
-#   ○ флаг каталога, ○ название родительского каталога.
+#   ○ флаг каталога
+#   ○ название родительского каталога.
 
 # В процессе сбора сохраните данные в текстовый файл используя логирование.
 
 import os
 import json
+from collections import namedtuple
 
 
 # функция рекурсивного обхода папок и файлов
-def info_dir_and_file (dir_path, result_list={}, size=0):
+def info_dir_and_file (dir_path, nametuple_list=None, size=0):
+
+    if not nametuple_list:
+        dct = {"Name": "", "Extension": "", "is_Folder": False, "Parrent_folder": "", "Size": 0}
+        Result_tuple = namedtuple("Result_tuple", dct)
+        nametuple_list = []
 
     data_dir = os.listdir (dir_path)    # получаем список папок и файлов в обследуемой папке
     list_dir = []       # список папок
@@ -28,24 +35,32 @@ def info_dir_and_file (dir_path, result_list={}, size=0):
     
     # обход папок
     for _dir in list_dir:
-        result_list, _size = info_dir_and_file (_dir, result_list)
+        nametuple_list, _size = info_dir_and_file (_dir, nametuple_list)
         size += _size
 
     # обход файлов внутри папки
-    temp_list = []
+    file_list = []
     for i_file in list_file:
         i_size = os.path.getsize(i_file)
-        file_info = f" - Файл {i_file}, размер {i_size} байт (папка: {dir_path})"
-        file_info = file_info.replace ("\\","/")
-        temp_list.append (file_info)
+
+        *a, b = i_file.split("/")               # слитуем по "\" на 2 части: всю "левую" часть до последней "\"" - и далее до конца
+        path_file = "\\".join(i for i in a)         # "левую" часть (a) сплитуем, собираем обратно - это полный путь
+        # так как названия бывают с точками - определяем где последняя точка, перед расширением
+        *file_name, file_extension = b.split(".")   # "прааую" часть (b) сплитуем по точкам на 2 части: 
+                                                    # всю "левую" часть до последней ".", и "правую" - где только расширение
+        file_name = ".".join(i for i in file_name)  # "левую" часть собираем обратно - это полное название без расширения
+
+        dir_path = dir_path.replace ("\\","/")
+        i_file = i_file.replace ("\\","/")
+
+        file_list.append (Result_tuple (file_name, file_extension, False, dir_path, i_size))
         size += i_size
-    dir_info = f"> Папка {os.path.abspath(dir_path)}, размер {size} байт"
-    dir_info = dir_info.replace ("\\","/")
-    result_list [os.path.abspath(dir_path)] = {"type": "Папка",
-                                               "name": dir_path,
-                                               "path": dir_path,
-                                               "size": sizeмм}
-    return result_list, size
+
+    dir_path = dir_path.replace ("\\","/")
+    nametuple_list.append (Result_tuple (dir_path, None, True, dir_path, size))
+    nametuple_list += file_list
+
+    return nametuple_list, size
 
 
 # функция записи словаря с результатами в формат JSON
@@ -86,13 +101,14 @@ os.chdir(dir_path)
 
 result, *_ = info_dir_and_file (dir_path)
 print ("--РЕЗУЛЬТАТ--")
-for key, value in result.items():
-    print (key)
-    for file in value:
-        print (file)
+for file_info in result:
+    print (file_info)
+    for key, value in file_info.items():
+        print (f"{key}:{value}")
+
 
 dir_path = base_dir_path + "/DZ_15"    # <-- рабочая папка для записи
-file_name = "result_scan"
+file_name = "result_scan_copy"
 os.chdir(dir_path)
 write_json (result, file_name)
 
