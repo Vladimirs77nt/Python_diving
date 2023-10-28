@@ -1,0 +1,37 @@
+{
+    "E:/codes/DZ_01": {
+        "Name": "DZ_01",
+        "Extension": null,
+        "is_Folder": true,
+        "Parent_folder": "E:/codes",
+        "Size": 5202
+    },
+    "E:/codes/DZ_01/DZ_01_1.py": {
+        "Name": "DZ_01_1",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_01",
+        "Size": 1478
+    },
+    "E:/codes/DZ_01/DZ_01_2.py": {
+        "Name": "DZ_01_2",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_01",
+        "Size": 984
+    },
+    "E:/codes/DZ_01/DZ_01_3 ver1.py": {
+        "Name": "DZ_01_3 ver1",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_01",
+        "Size": 1501
+    },
+    "E:/codes/DZ_01/DZ_01_3 ver2.py": {
+        "Name": "DZ_01_3 ver2",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_01",
+        "Size": 1239
+    }
+}

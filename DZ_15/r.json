@@ -13927,7 +13927,14 @@
         "Extension": null,
         "is_Folder": true,
         "Parent_folder": "E:/codes",
-        "Size": 687117
+        "Size": 1317655
+    },
+    "E:/codes/DZ_15/123.json": {
+        "Name": "123",
+        "Extension": "json",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_15",
+        "Size": 977
     },
     "E:/codes/DZ_15/DZ_15.py": {
         "Name": "DZ_15",
@@ -13941,7 +13948,7 @@
         "Extension": "py",
         "is_Folder": false,
         "Parent_folder": "E:/codes/DZ_15",
-        "Size": 7267
+        "Size": 7662
     },
     "E:/codes/DZ_15/DZ_15_Стоун.py": {
         "Name": "DZ_15_Стоун",
@@ -13950,12 +13957,26 @@
         "Parent_folder": "E:/codes/DZ_15",
         "Size": 3496
     },
+    "E:/codes/DZ_15/r.json": {
+        "Name": "r",
+        "Extension": "json",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_15",
+        "Size": 628185
+    },
     "E:/codes/DZ_15/README.md": {
         "Name": "README",
         "Extension": "md",
         "is_Folder": false,
         "Parent_folder": "E:/codes/DZ_15",
         "Size": 38416
+    },
+    "E:/codes/DZ_15/result_logfile.json": {
+        "Name": "result_logfile",
+        "Extension": "json",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_15",
+        "Size": 977
     },
     "E:/codes/DZ_15/result_scan.json": {
         "Name": "result_scan",
@@ -13969,7 +13990,7 @@
         "Extension": "json",
         "is_Folder": false,
         "Parent_folder": "E:/codes/DZ_15",
-        "Size": 627589
+        "Size": 627593
     },
     "E:/codes/DZ_15/result_scan_СТОУН.json": {
         "Name": "result_scan_СТОУН",
@@ -17504,7 +17525,7 @@
         "Extension": null,
         "is_Folder": true,
         "Parent_folder": "E:",
-        "Size": 4090500
+        "Size": 4721038
     },
     "E:/codes/README.md": {
         "Name": "README",

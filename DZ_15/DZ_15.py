@@ -5,89 +5,119 @@
 # Каждый объект хранит:
 #   ○ имя файла без расширения или название каталога
 #   ○ расширение, если это файл,
-#   ○ флаг каталога, ○ название родительского каталога.
+#   ○ флаг каталога
+#   ○ название родительского каталога.
 
 # В процессе сбора сохраните данные в текстовый файл используя логирование.
 
 import os
 import json
+from collections import namedtuple
 
 
 # функция рекурсивного обхода папок и файлов
-def info_dir_and_file (dir_path, result_list={}, size=0):
+# !!! для внешнего вызова функции на входе задаем ТОЛЬКО путь к папке !!!
+def scan_dir_path (dir_path, nametuple_list=[], size=0):
 
-    data_dir = os.listdir (dir_path)    # получаем список папок и файлов в обследуемой папке
-    list_dir = []       # список папок
-    list_file = []      # список файлов
+    # (1) инициализация для объектов namedtuple
+    dct = {"Name": "", "Extension": "", "is_Folder": False, "Parent_folder": "", "Size": 0}
+    Result_tuple = namedtuple("Result_tuple", dct)
+
+    # (2) получаем список папок и файлов в обследуемой папке
+    dir_path = dir_path.replace ("\\","/")
+    data_dir = os.listdir (dir_path)
+    list_dir = []                       # список папок
+    list_file = []                      # список файлов
     for i in data_dir:
         _file = dir_path + "/" + i
         if os.path.isfile(_file):
-            list_file.append (_file)    # сюда складываем файлы
+            list_file.append (_file)    # сюда складываем файлы (list_file)
         else:
-            list_dir.append (_file)     # сюда складываем папки
+            list_dir.append (_file)     # сюда складываем папки (list_dir)
     
-    # обход папок
+    # (3) РЕКУРСИВНЫЙ обход ВСЕХ папок
+    # если список папок (list_dir) - пустой, то начинаем обрабатывать файлы внутри папки (4)
     for _dir in list_dir:
-        result_list, _size = info_dir_and_file (_dir, result_list)
-        size += _size
+        nametuple_list, _size = scan_dir_path (_dir, nametuple_list)    #  <-- рекурсивный вызов функции
+        size += _size   # на выходе получаем размер обследуемой папки
 
-    # обход файлов внутри папки
-    temp_list = []
+    # (4) обход файлов внутри папки
+    nametuple_list_file = []
     for i_file in list_file:
-        i_size = os.path.getsize(i_file)
-        file_info = f" - Файл {i_file}, размер {i_size} байт (папка: {dir_path})"
-        file_info = file_info.replace ("\\","/")
-        temp_list.append (file_info)
+        i_size = os.path.getsize(i_file)    # размер файла
+
+        # магия получения имени файла, расширения и полного пути до него
+        *_, file_name = i_file.split("/")                   # отбрасываем левую часть до послежней "\"
+        *file_name, file_extension = file_name.split(".")   # "прааую" часть (b) сплитуем по точкам на 2 части: всю "левую" часть до последней ".", и "правую" - где только расширение
+        file_name = ".".join(i for i in file_name)          # "левую" часть собираем обратно - это полное название без расширения
+       
+       # обработка ситуации когда у файла нет расширения
+        if file_name == "":
+            file_name = file_extension
+            file_extension = None
+
+        # с список добавляем объект namedtuple = файл
+        nametuple_list_file.append (Result_tuple (file_name, file_extension, False, dir_path, i_size))
+
+        # суммируем размер всех файлов в одной папке (итоговый размер папки)
         size += i_size
-    dir_info = f"> Папка {os.path.abspath(dir_path)}, размер {size} байт"
-    dir_info = dir_info.replace ("\\","/")
-    result_list [dir_info] = temp_list
-    return result_list, size
+    
+    *dir_path, dir_name = dir_path.split("/")
+    dir_path = "/".join(i for i in dir_path)
+
+    # в итоговый список объектов добавляем информацию о папке
+    nametuple_list.append (Result_tuple (dir_name, None, True, dir_path, size))
+
+    # после добавления объекта папки добавляем файлы, которые есть в этой папке
+    nametuple_list += nametuple_list_file  
+
+    # выход из рекурсии
+    return nametuple_list, size
 
 
 # функция записи словаря с результатами в формат JSON
-def write_json (_result_dict, file_name):
+def write_json (result, file_name):
     file_json = file_name + ".json"
+    result_dict = {}
+    for file_info in result:
+        key = file_info[3] + "/" + file_info[0] + (f".{file_info[1]}" if file_info[1] else "")
+        result_dict [key] = file_info._asdict()
+
     # запись JSON
     with open(file_json, 'w', encoding='utf-8') as f:
-        json.dump(_result_dict, f, indent=4, ensure_ascii=False)
-
-# Функция возвращает кортеж из трёх элементов: путь, имя файла, расширение файла.
-#         - принимает на вход строку — абсолютный путь до файла.
-def func_file_path (file):
-    *a, b = file.split("\\")               # слитуем по "\" на 2 части: всю "левую" часть до последней "\"" - и далее до конца
-    path_file = "\\".join(i for i in a)         # "левую" часть (a) сплитуем, собираем обратно - это полный путь
-    # так как названия бывают с точками - определяем где последняя точка, перед расширением
-    *file_name, file_extension = b.split(".")   # "прааую" часть (b) сплитуем по точкам на 2 части: 
-                                                # всю "левую" часть до последней ".", и "правую" - где только расширение
-    file_name = ".".join(j for j in file_name)  # "левую" часть собираем обратно - это полное название без расширения
-    print ()
-    print (f"            Путь:   {path_file}")
-    print (f"       имя файла:   {file_name}")
-    print (f"расширение файла:   {file_extension}")
-    print ()
+        json.dump(result_dict, f, indent=4, ensure_ascii=False)
 
 
 # --------------- ЗАПУСК ПРОГРАММЫ ------------------
 
 print ()
-print (" --- ВНИМАНИЕ !!! ЗАДАЧА ЕЩЕ В ПРОЦЕССЕ РЕШЕНИЯ !!! ---")
-print (" --- ЗАГРУЗКА БУДЕТ СДЕЛАНА СЕГОДНЯ НОЧЬЮ ИЛИ ЗАВТРА УТРОМ ---")
+print (" --- ВНИМАНИЕ !!! ЗАДАЧА ПОЧТИ РЕШЕНА !!! ---")
 print ()
 
-base_dir_path = os.getcwd()
-dir_path = base_dir_path + "/DZ_06"    # <-- рабочая папка для работы
+
+base_dir_path = os.getcwd()     # <-- полный путь к текущей рабочей папке
+dir_path = "D:\НИКОМ"    # <-- рабочая папка для обследования
 os.chdir(dir_path)
+print (" - Папка для обследования: ", dir_path)
 
-result, *_ = info_dir_and_file (dir_path)
+# получаем результат (и полный размер обследуемой папки)
+result, _ = scan_dir_path (dir_path)
+
 print ("--РЕЗУЛЬТАТ--")
-for key, value in result.items():
-    print (key)
-    for file in value:
-        print (file)
+# [0] Name
+# [1] Extension
+# [2] is_Folder True/False
+# [3] Parent_folder
+# [4] Size
 
-dir_path = base_dir_path + "/DZ_15"    # <-- рабочая папка для записи
-file_name = "result_scan"
+# for file_info in result:
+#     if file_info[2]:
+#         print (f" > Папка {file_info[0]}\n\t{file_info[3]}\n\tразмер: {file_info[4]}")
+#     else:
+#         print (f"  - файл: {file_info[0]}\n\t.{file_info[1]}\n\t{file_info[3]}\n\tразмер: {file_info[4]}")
+
+dir_path = base_dir_path + "\DZ_15"    # <-- рабочая папка для записи
+file_name = "result_scan_copy"
 os.chdir(dir_path)
 write_json (result, file_name)
 

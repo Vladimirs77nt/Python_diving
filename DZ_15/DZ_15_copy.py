@@ -13,6 +13,7 @@
 import os
 import json
 from collections import namedtuple
+import argparse
 
 
 # функция рекурсивного обхода папок и файлов
@@ -20,6 +21,11 @@ from collections import namedtuple
 def scan_dir_path (dir_path, nametuple_list=[], size=0):
 
     # (1) инициализация для объектов namedtuple
+        # [0] Name          - имя файла/папки
+        # [1] Extension     - расширение файла (или None)
+        # [2] is_Folder True/False  - флаг папки
+        # [3] Parent_folder - родительская папка
+        # [4] Size          - размер папки или файла
     dct = {"Name": "", "Extension": "", "is_Folder": False, "Parent_folder": "", "Size": 0}
     Result_tuple = namedtuple("Result_tuple", dct)
 
@@ -89,39 +95,46 @@ def write_json (result, file_name):
 
 
 # --------------- ЗАПУСК ПРОГРАММЫ ------------------
-
 print ()
 print (" --- ВНИМАНИЕ !!! ЗАДАЧА ПОЧТИ РЕШЕНА !!! ---")
 print ()
 
 
-base_dir_path = os.getcwd()     # <-- полный путь к текущей рабочей папке
-dir_path = base_dir_path + ""   # <-- рабочая папка для обследования
+# НАСТРОЙКА ЗНАЧЕНИЙ ПО УМОЛЧАНИЮ
+dir_path_base = "E:/codes"               # <-- полный путь к текущей рабочей папке со всеми программами курса "Погружение..."
+dir_path_out = dir_path_base + "/DZ_15"  # <-- рабочая папка для записи файла логирования
+file_name_out = "result_logfile"         # <-- название для файла логирования
+
+# НАСТРОЙКА ПАРСЕРА
+parser = argparse.ArgumentParser(description='Сбор информации о папках и файлах по указанному пути')
+parser.add_argument("-indir", metavar='indir', type=str, nargs = 1, default=dir_path_base,
+                    help=f"- введите полный путь к обследуемой папки (defajult = {dir_path_base})")
+parser.add_argument("-outdir",  metavar='outdir', type=str, nargs = 1, default=dir_path_out,
+                    help=f"- введите полный путь к папке для записи файла логирования (default = {dir_path_out})")
+parser.add_argument("-logfile",  metavar='logfile', type=str, nargs = 1, default=file_name_out,
+                    help=f"- введите название файла логирования (default = {file_name_out})")
+args = parser.parse_args()
+
+dir_path = args.indir
+if type(dir_path) == list:
+    dir_path, *_ = args.indir
+
+dir_path_out = args.outdir
+if type(dir_path_out) == list:
+    dir_path_out, *_ = args.outdir
+
+file_name_out, *_ = args.logfile
+if type(file_name_out) == list:
+    file_name_out, *_ = args.logfile
+
+print (" Папка для обследования:", dir_path)
 os.chdir(dir_path)
-print (" - Папка для обследования: ", dir_path)
 
-# получаем результат (и полный размер обследуемой папки)
-result, _ = scan_dir_path (dir_path)
+# ПОЛУЧАЕМ результат (и полный размер обследуемой папки)
+print (" > обработка запущена...")
+result, size_dir = scan_dir_path (dir_path)
+print (" > ...выполнено")
 
-print ("--РЕЗУЛЬТАТ--")
-# [0] Name
-# [1] Extension
-# [2] is_Folder True/False
-# [3] Parent_folder
-# [4] Size
-
-# for file_info in result:
-#     if file_info[2]:
-#         print (f" > Папка {file_info[0]}\n\t{file_info[3]}\n\tразмер: {file_info[4]}")
-#     else:
-#         print (f"  - файл: {file_info[0]}\n\t.{file_info[1]}\n\t{file_info[3]}\n\tразмер: {file_info[4]}")
-
-dir_path = base_dir_path + "\DZ_15"    # <-- рабочая папка для записи
-file_name = "result_scan_copy"
-os.chdir(dir_path)
-write_json (result, file_name)
-
-print ()
-print (" --- ВНИМАНИЕ !!! ЗАДАЧА ЕЩЕ В ПРОЦЕССЕ РЕШЕНИЯ !!! ---")
-print (" --- ЗАГРУЗКА БУДЕТ СДЕЛАНА СЕГОДНЯ НОЧЬЮ ИЛИ ЗАВТРА УТРОМ ---")
-print ()
+# ЛОГИРУЕМ результат
+os.chdir(dir_path_out)
+write_json (result, file_name_out)
