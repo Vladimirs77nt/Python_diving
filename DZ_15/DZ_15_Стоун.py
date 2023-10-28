@@ -76,23 +76,23 @@ print ()
 
 # НАСТРОЙКА ЗНАЧЕНИЙ ПО УМОЛЧАНИЮ
 dir_path_base = "E:/codes"               # <-- полный путь к текущей рабочей папке со всеми программами курса "Погружение..."
-dir_path_in = dir_path_base + "/DZ_06"   # <-- рабочая папка для сканирования папок и файлов
+dir_path_in = dir_path_base + ""         # <-- рабочая папка для сканирования папок и файлов
 dir_path_out = dir_path_base + "/DZ_15"  # <-- рабочая папка для записи файла логирования
 file_name_out = "logfile_СТОУН.log"            # <-- название для файла логирования
 
 # НАСТРОЙКА ПАРСЕРА
 parser = argparse.ArgumentParser(description='Сбор информации о папках и файлах по указанному пути')
-parser.add_argument("-indir", metavar='indir', type=str, nargs = 1, default=dir_path_base,
-                    help=f"- введите полный путь к обследуемой папки (defajult = {dir_path_base})")
+parser.add_argument("-indir", metavar='indir', type=str, nargs = 1, default=dir_path_in,
+                    help=f"- введите полный путь к обследуемой папки (defajult = {dir_path_in})")
 parser.add_argument("-outdir",  metavar='outdir', type=str, nargs = 1, default=dir_path_out,
                     help=f"- введите полный путь к папке для записи файла логирования (default = {dir_path_out})")
 parser.add_argument("-logfile",  metavar='logfile', type=str, nargs = 1, default=file_name_out,
                     help=f"- введите название файла логирования (default = {file_name_out})")
 args = parser.parse_args()
 
-dir_path = args.indir
-if type(dir_path) == list:
-    dir_path, *_ = args.indir
+dir_path_in = args.indir
+if type(dir_path_in) == list:
+    dir_path_in, *_ = args.indir
 
 dir_path_out = args.outdir
 if type(dir_path_out) == list:
