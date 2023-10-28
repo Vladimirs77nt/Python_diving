@@ -1,0 +1,91 @@
+E:/codes/DZ_06/modules:
+        	Name: modules,
+        	Extension: None,
+        	is_Folder: True,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 382
+
+E:/codes/DZ_06/DZ_06_1.py:
+        	Name: DZ_06_1,
+        	Extension: py,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 1176
+
+E:/codes/DZ_06/DZ_06_2.py:
+        	Name: DZ_06_2,
+        	Extension: py,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 1066
+
+E:/codes/DZ_06/DZ_06_3.py:
+        	Name: DZ_06_3,
+        	Extension: py,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 3531
+
+E:/codes/DZ_06/DZ_06_4.py:
+        	Name: DZ_06_4,
+        	Extension: py,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 2687
+
+E:/codes/DZ_06/result_scan.csv:
+        	Name: result_scan,
+        	Extension: csv,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 247
+
+E:/codes/DZ_06/result_scan.json:
+        	Name: result_scan,
+        	Extension: json,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 1308
+
+E:/codes/DZ_06/result_scan.pickle:
+        	Name: result_scan,
+        	Extension: pickle,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06,
+        	Size: 258
+
+E:/codes/DZ_06\modules/__pycache__:
+        	Name: __pycache__,
+        	Extension: None,
+        	is_Folder: True,
+        	Parent_folder: E:/codes/DZ_06\modules,
+        	Size: 216
+
+E:/codes/DZ_06\modules/chess.py:
+        	Name: chess,
+        	Extension: py,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06\modules,
+        	Size: 7214
+
+E:/codes/DZ_06\modules/time_module.py:
+        	Name: time_module,
+        	Extension: py,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06\modules,
+        	Size: 2089
+
+E:/codes/DZ_06\modules\__pycache__/chess.cpython-311.pyc:
+        	Name: chess.cpython-311,
+        	Extension: pyc,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06\modules\__pycache__,
+        	Size: 5843
+
+E:/codes/DZ_06\modules\__pycache__/time_module.cpython-311.pyc:
+        	Name: time_module.cpython-311,
+        	Extension: pyc,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/DZ_06\modules\__pycache__,
+        	Size: 1170
+

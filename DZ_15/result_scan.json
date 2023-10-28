@@ -1,19 +1,100 @@
 {
-    "> Папка E:/codes/DZ_06/modules/__pycache__, размер 7013 байт": [
-        " - Файл E:/codes/DZ_06/modules/__pycache__/chess.cpython-311.pyc, размер 5843 байт (папка: E:/codes/DZ_06/modules/__pycache__)",
-        " - Файл E:/codes/DZ_06/modules/__pycache__/time_module.cpython-311.pyc, размер 1170 байт (папка: E:/codes/DZ_06/modules/__pycache__)"
-    ],
-    "> Папка E:/codes/DZ_06/modules, размер 16316 байт": [
-        " - Файл E:/codes/DZ_06/modules/chess.py, размер 7214 байт (папка: E:/codes/DZ_06/modules)",
-        " - Файл E:/codes/DZ_06/modules/time_module.py, размер 2089 байт (папка: E:/codes/DZ_06/modules)"
-    ],
-    "> Папка E:/codes/DZ_06, размер 26589 байт": [
-        " - Файл E:/codes/DZ_06/DZ_06_1.py, размер 1176 байт (папка: E:/codes/DZ_06)",
-        " - Файл E:/codes/DZ_06/DZ_06_2.py, размер 1066 байт (папка: E:/codes/DZ_06)",
-        " - Файл E:/codes/DZ_06/DZ_06_3.py, размер 3531 байт (папка: E:/codes/DZ_06)",
-        " - Файл E:/codes/DZ_06/DZ_06_4.py, размер 2687 байт (папка: E:/codes/DZ_06)",
-        " - Файл E:/codes/DZ_06/result_scan.csv, размер 247 байт (папка: E:/codes/DZ_06)",
-        " - Файл E:/codes/DZ_06/result_scan.json, размер 1308 байт (папка: E:/codes/DZ_06)",
-        " - Файл E:/codes/DZ_06/result_scan.pickle, размер 258 байт (папка: E:/codes/DZ_06)"
-    ]
+    "E:/codes/DZ_06/modules/__pycache__": {
+        "Name": "__pycache__",
+        "Extension": null,
+        "is_Folder": true,
+        "Parent_folder": "E:/codes/DZ_06/modules",
+        "Size": 7013
+    },
+    "E:/codes/DZ_06/modules/__pycache__/chess.cpython-311.pyc": {
+        "Name": "chess.cpython-311",
+        "Extension": "pyc",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06/modules/__pycache__",
+        "Size": 5843
+    },
+    "E:/codes/DZ_06/modules/__pycache__/time_module.cpython-311.pyc": {
+        "Name": "time_module.cpython-311",
+        "Extension": "pyc",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06/modules/__pycache__",
+        "Size": 1170
+    },
+    "E:/codes/DZ_06/modules": {
+        "Name": "modules",
+        "Extension": null,
+        "is_Folder": true,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 16316
+    },
+    "E:/codes/DZ_06/modules/chess.py": {
+        "Name": "chess",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06/modules",
+        "Size": 7214
+    },
+    "E:/codes/DZ_06/modules/time_module.py": {
+        "Name": "time_module",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06/modules",
+        "Size": 2089
+    },
+    "E:/codes/DZ_06": {
+        "Name": "DZ_06",
+        "Extension": null,
+        "is_Folder": true,
+        "Parent_folder": "E:/codes",
+        "Size": 26589
+    },
+    "E:/codes/DZ_06/DZ_06_1.py": {
+        "Name": "DZ_06_1",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 1176
+    },
+    "E:/codes/DZ_06/DZ_06_2.py": {
+        "Name": "DZ_06_2",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 1066
+    },
+    "E:/codes/DZ_06/DZ_06_3.py": {
+        "Name": "DZ_06_3",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 3531
+    },
+    "E:/codes/DZ_06/DZ_06_4.py": {
+        "Name": "DZ_06_4",
+        "Extension": "py",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 2687
+    },
+    "E:/codes/DZ_06/result_scan.csv": {
+        "Name": "result_scan",
+        "Extension": "csv",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 247
+    },
+    "E:/codes/DZ_06/result_scan.json": {
+        "Name": "result_scan",
+        "Extension": "json",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 1308
+    },
+    "E:/codes/DZ_06/result_scan.pickle": {
+        "Name": "result_scan",
+        "Extension": "pickle",
+        "is_Folder": false,
+        "Parent_folder": "E:/codes/DZ_06",
+        "Size": 258
+    }
 }
