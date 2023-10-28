@@ -13,7 +13,6 @@
 # ВНИМАНИЕ !!! ИСПОЛЬЗУЕТСЯ ИСХОДНИК МОДУЛЯ ОТ СТОУНА !!!
 
 import os
-import sys
 from collections import namedtuple
 import argparse
 import logging
@@ -23,7 +22,7 @@ def size_of_dir(dir_path: str) -> int:
     total_size = 0
     for path, _, files in os.walk(dir_path):
         for file in files:
-            total_size += sys.getsizeof(os.path.join(path, file))
+            total_size += os.path.getsize(os.path.join(path, file))
     return total_size
 
 def dir_walker(full_path: str = os.getcwd()):
@@ -38,8 +37,10 @@ def dir_walker(full_path: str = os.getcwd()):
     Result_tuple = namedtuple("Result_tuple", dct)
 
     for path, dir_list, file_list in os.walk(full_path):
+        path = path.replace ("\\","/")
         for cur_dir in dir_list:
-            nametuple_dir = Result_tuple (cur_dir, None, True, path, size_of_dir(os.path.join(path, cur_dir)))
+            size_dir = size_of_dir(os.path.join(path, cur_dir))
+            nametuple_dir = Result_tuple (cur_dir, None, True, path, size_dir)
             nametuple_list.append (nametuple_dir)
             logger.info(msg=nametuple_to_json_str(nametuple_dir))
 
@@ -47,8 +48,8 @@ def dir_walker(full_path: str = os.getcwd()):
             # магия получения имени файла, расширения и полного пути до него
             *file_name, file_extension = cur_file.split(".")   # "прааую" часть (b) сплитуем по точкам на 2 части: всю "левую" часть до последней ".", и "правую" - где только расширение
             file_name = ".".join(i for i in file_name)          # "левую" часть собираем обратно - это полное название без расширения
-       
-            nametuple_file = Result_tuple (file_name, file_extension, False, path, os.path.getsize(os.path.join(path, cur_file)))
+            size_file = os.path.getsize(os.path.join(path, cur_file))
+            nametuple_file = Result_tuple (file_name, file_extension, False, path, size_file)
             nametuple_list.append (nametuple_file)
             logger.info(msg=nametuple_to_json_str(nametuple_file))
 

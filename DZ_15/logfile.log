@@ -115,56 +115,56 @@ E:/codes/.git/logs/refs/heads/main:
         	Extension: None,
         	is_Folder: False,
         	Parent_folder: E:/codes/.git/logs/refs/heads,
-        	Size: 23703
+        	Size: 23892
 
 E:/codes/.git/logs/refs/heads:
         	Name: heads,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/logs/refs,
-        	Size: 23703
+        	Size: 23892
 
 E:/codes/.git/logs/refs/remotes/origin/main:
         	Name: main,
         	Extension: None,
         	is_Folder: False,
         	Parent_folder: E:/codes/.git/logs/refs/remotes/origin,
-        	Size: 15617
+        	Size: 15778
 
 E:/codes/.git/logs/refs/remotes/origin:
         	Name: origin,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/logs/refs/remotes,
-        	Size: 15617
+        	Size: 15778
 
 E:/codes/.git/logs/refs/remotes:
         	Name: remotes,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/logs/refs,
-        	Size: 15617
+        	Size: 15778
 
 E:/codes/.git/logs/refs:
         	Name: refs,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/logs,
-        	Size: 39320
+        	Size: 39670
 
 E:/codes/.git/logs/HEAD:
         	Name: HEAD,
         	Extension: None,
         	is_Folder: False,
         	Parent_folder: E:/codes/.git/logs,
-        	Size: 23703
+        	Size: 23892
 
 E:/codes/.git/logs:
         	Name: logs,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git,
-        	Size: 63023
+        	Size: 63562
 
 E:/codes/.git/objects/00/32cc3da5a3cccacc0325c15c835123f662aeb6:
         	Name: 32cc3da5a3cccacc0325c15c835123f662aeb6,
@@ -2126,12 +2126,19 @@ E:/codes/.git/objects/28/647871c382483f6e9f14d2d326130d515ec2a6:
         	Parent_folder: E:/codes/.git/objects/28,
         	Size: 3293
 
+E:/codes/.git/objects/28/e1162921131ca43a37fc84713a9bc83b2516e1:
+        	Name: e1162921131ca43a37fc84713a9bc83b2516e1,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/28,
+        	Size: 2569
+
 E:/codes/.git/objects/28:
         	Name: 28,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 5312
+        	Size: 7881
 
 E:/codes/.git/objects/29/672b0710ce8f0b9e74e2d8f4b617dd87cdb33c:
         	Name: 672b0710ce8f0b9e74e2d8f4b617dd87cdb33c,
@@ -2707,6 +2714,13 @@ E:/codes/.git/objects/34/475b358daa94b238ed7917a1176c5cc3b4c660:
         	Parent_folder: E:/codes/.git/objects/34,
         	Size: 1494
 
+E:/codes/.git/objects/34/51a01722b6d0860fe12fc49e8398c0ff87ea87:
+        	Name: 51a01722b6d0860fe12fc49e8398c0ff87ea87,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/34,
+        	Size: 232
+
 E:/codes/.git/objects/34/7775702965a4ba6ad176f157fceb9bf4f801fe:
         	Name: 7775702965a4ba6ad176f157fceb9bf4f801fe,
         	Extension: None,
@@ -2782,7 +2796,7 @@ E:/codes/.git/objects/34:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 8171
+        	Size: 8403
 
 E:/codes/.git/objects/35/1cf019ef965a1a49abbf9f6179e711a8b2274e:
         	Name: 1cf019ef965a1a49abbf9f6179e711a8b2274e,
@@ -4940,6 +4954,13 @@ E:/codes/.git/objects/60/a3642c038d10805c67737bbe3fda8cf6f90442:
         	Parent_folder: E:/codes/.git/objects/60,
         	Size: 151
 
+E:/codes/.git/objects/60/ca1cd6ece24fff9f4149c81fea019b63cf7885:
+        	Name: ca1cd6ece24fff9f4149c81fea019b63cf7885,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/60,
+        	Size: 3163
+
 E:/codes/.git/objects/60/cbfe4aaaab32d2e831351d4dabf7a7dd717ab4:
         	Name: cbfe4aaaab32d2e831351d4dabf7a7dd717ab4,
         	Extension: None,
@@ -4973,7 +4994,7 @@ E:/codes/.git/objects/60:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 7111
+        	Size: 10274
 
 E:/codes/.git/objects/61/09a951bc9a9fa5c8ff8683f281ad455e8840c7:
         	Name: 09a951bc9a9fa5c8ff8683f281ad455e8840c7,
@@ -5689,12 +5710,19 @@ E:/codes/.git/objects/6f/7e8f57888d8a5ea425db30a26c85ac11bc34f4:
         	Parent_folder: E:/codes/.git/objects/6f,
         	Size: 697
 
+E:/codes/.git/objects/6f/c238f94c5b58dc7eee086619cf62358cf9a764:
+        	Name: c238f94c5b58dc7eee086619cf62358cf9a764,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/6f,
+        	Size: 199
+
 E:/codes/.git/objects/6f:
         	Name: 6f,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 1168
+        	Size: 1367
 
 E:/codes/.git/objects/70/1017849a9030413fb6f7a5d67adbbd73ed0a5d:
         	Name: 1017849a9030413fb6f7a5d67adbbd73ed0a5d,
@@ -5780,12 +5808,19 @@ E:/codes/.git/objects/71/dc77db0b9203e6a1a249826e425c463547a43b:
         	Parent_folder: E:/codes/.git/objects/71,
         	Size: 213
 
+E:/codes/.git/objects/71/eb4f20c99de1b9a52fa81e4a3551d61d7e9131:
+        	Name: eb4f20c99de1b9a52fa81e4a3551d61d7e9131,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/71,
+        	Size: 1048
+
 E:/codes/.git/objects/71:
         	Name: 71,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 2191
+        	Size: 3239
 
 E:/codes/.git/objects/72/0b05206f0b7ee5be08ae4783a493e4d5647232:
         	Name: 0b05206f0b7ee5be08ae4783a493e4d5647232,
@@ -10351,6 +10386,13 @@ E:/codes/.git/objects/cc:
         	Parent_folder: E:/codes/.git/objects,
         	Size: 4306
 
+E:/codes/.git/objects/cd/1912bdad89e023bb08185274373993b95066fb:
+        	Name: 1912bdad89e023bb08185274373993b95066fb,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/cd,
+        	Size: 80079
+
 E:/codes/.git/objects/cd/3ef8094a355ed0359a13003eb6ba13927696f5:
         	Name: 3ef8094a355ed0359a13003eb6ba13927696f5,
         	Extension: None,
@@ -10419,7 +10461,7 @@ E:/codes/.git/objects/cd:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 10330
+        	Size: 90409
 
 E:/codes/.git/objects/ce/387bd7cf52b0b367014c96dafbef656779ffd8:
         	Name: 387bd7cf52b0b367014c96dafbef656779ffd8,
@@ -12815,6 +12857,13 @@ E:/codes/.git/objects/fd/7e3b70da806164b5f20b7f7024a041a3aa4d3d:
         	Parent_folder: E:/codes/.git/objects/fd,
         	Size: 21
 
+E:/codes/.git/objects/fd/d53e45c7a42e0dc94a2acffa17060650482b57:
+        	Name: d53e45c7a42e0dc94a2acffa17060650482b57,
+        	Extension: None,
+        	is_Folder: False,
+        	Parent_folder: E:/codes/.git/objects/fd,
+        	Size: 81642
+
 E:/codes/.git/objects/fd/f92d9dff015aa3cfe621d544a7fe2d284e0491:
         	Name: f92d9dff015aa3cfe621d544a7fe2d284e0491,
         	Extension: None,
@@ -12827,7 +12876,7 @@ E:/codes/.git/objects/fd:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git/objects,
-        	Size: 2022
+        	Size: 83664
 
 E:/codes/.git/objects/fe/30b2ac4a798ba43bf68da89f2a06157d4f71a4:
         	Name: 30b2ac4a798ba43bf68da89f2a06157d4f71a4,
@@ -12939,7 +12988,7 @@ E:/codes/.git/objects:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes/.git,
-        	Size: 2266030
+        	Size: 2434962
 
 E:/codes/.git/refs/heads/main:
         	Name: main,
@@ -13030,7 +13079,7 @@ E:/codes/.git:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes,
-        	Size: 2413407
+        	Size: 2582878
 
 E:/codes/.pytest_cache/v/cache/lastfailed:
         	Name: lastfailed,
@@ -14080,21 +14129,21 @@ E:/codes/DZ_15/DZ_15_Стоун.py:
         	Extension: py,
         	is_Folder: False,
         	Parent_folder: E:/codes/DZ_15,
-        	Size: 6447
+        	Size: 6536
 
 E:/codes/DZ_15/logfile.log:
         	Name: logfile,
         	Extension: log,
         	is_Folder: False,
         	Parent_folder: E:/codes/DZ_15,
-        	Size: 471021
+        	Size: 472780
 
 E:/codes/DZ_15/logfile_СТОУН.log:
         	Name: logfile_СТОУН,
         	Extension: log,
         	is_Folder: False,
         	Parent_folder: E:/codes/DZ_15,
-        	Size: 2436
+        	Size: 570504
 
 E:/codes/DZ_15/result_scan.json:
         	Name: result_scan,
@@ -14108,7 +14157,7 @@ E:/codes/DZ_15:
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:/codes,
-        	Size: 497747
+        	Size: 1067663
 
 E:/codes/Lesson_02/Leson-02-1.py:
         	Name: Leson-02-1,
@@ -17636,12 +17685,12 @@ E:/codes/README.md:
         	Extension: md,
         	is_Folder: False,
         	Parent_folder: E:/codes,
-        	Size: 39388
+        	Size: 39565
 
 E:/codes:
         	Name: codes,
         	Extension: None,
         	is_Folder: True,
         	Parent_folder: E:,
-        	Size: 4179888
+        	Size: 4919452
 
